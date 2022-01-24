@@ -152,7 +152,7 @@ void loop() {
     if (use) {
       Serial.println("allumage");
 
-      myDFPlayer.play(2);
+      myDFPlayer.play(1);
       for (int i = 75; i < 256; i++) {
         //analogWrite(LEDR, i);
         analogWrite(LEDB, i);
@@ -160,12 +160,11 @@ void loop() {
       }
 
       myDFPlayer.volume(33);
-      myDFPlayer.loop(4);
+      myDFPlayer.loop(3);
 
     } else {
       myDFPlayer.volume(24);
-      myDFPlayer.play(3);
-      Serial.println("saber off");
+      myDFPlayer.play(2);
       for (int i = 0; i < 256; i++) {
         //analogWrite(LEDR, 255 - i);
         analogWrite(LEDB, 255 - i);
@@ -183,7 +182,7 @@ void loop() {
     Serial.println(timewait);
     if (millis() - timewait >= 450) {
 
-      myDFPlayer.loop(4);
+      myDFPlayer.loop(3);
 
       playsound = false;
     }
@@ -275,10 +274,10 @@ void son(int quelcoup) {
     if (quelcoup == 1) {
       int r1;
       //de 5 à 12 les sons sont les coups faibles
-      int r = random(5, 12);
+      int r = random(4, 11);
       while (r == r1)
       {
-        r = random(5, 12);
+        r = random(4, 11);
       }
       r1 = r;
       myDFPlayer.play(r);
@@ -287,10 +286,10 @@ void son(int quelcoup) {
     if (quelcoup == 2) {
       int r2;
       //de 12 à 20 les sons sont les swings
-      int r = random(12, 20);
+      int r = random(11, 19);
       while (r == r2)
       {
-        r = random(12, 20);
+        r = random(11, 19);
       }
       r2 = r;
       myDFPlayer.play(r);
@@ -299,10 +298,10 @@ void son(int quelcoup) {
     if (quelcoup == 3) {
       int r3;
       //de 20 à 25 les sons sont les crash
-      int r = random(20, 25);
+      int r = random(19, 24);
       while (r == r3)
       {
-        r = random(20, 25);
+        r = random(19, 24);
       }
       r3 = r;
       myDFPlayer.play(r);
